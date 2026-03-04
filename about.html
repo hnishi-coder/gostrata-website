@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Gostrata Ltd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0a1628; --primary-mid: #152040; --accent: #3b82f6; --accent-dark: #2563eb;
+            --accent-glow: rgba(59,130,246,0.15); --gold: #d4a853;
+            --text: #e2e8f0; --text-muted: #94a3b8;
+            --bg-dark: #0b1120; --bg-card: rgba(15,23,42,0.6); --border: rgba(255,255,255,0.08); --glass: rgba(255,255,255,0.03);
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); line-height: 1.6; background: var(--bg-dark); }
+
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,22,40,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .logo { color: #fff; font-size: 24px; font-weight: 800; padding: 20px 0; letter-spacing: 2px; }
+        .logo span { color: var(--accent); }
+        nav ul { list-style: none; display: flex; gap: 4px; }
+        nav ul li a { color: var(--text-muted); text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #fff; background: rgba(255,255,255,0.08); }
+        .hamburger { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+        /* Page Hero */
+        .page-hero {
+            position: relative; padding: 160px 48px 80px; overflow: hidden;
+        }
+        .page-hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80') center/cover no-repeat;
+        }
+        .page-hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.85) 60%, var(--bg-dark) 100%);
+        }
+        .page-hero-content {
+            position: relative; z-index: 2; max-width: 700px;
+        }
+        .page-hero-content .section-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+        .page-hero-content h1 { font-size: 48px; font-weight: 800; color: #fff; margin-bottom: 16px; line-height: 1.15; }
+        .page-hero-content p { font-size: 18px; color: var(--text-muted); line-height: 1.7; }
+
+        /* Content */
+        .content { max-width: 1100px; margin: 0 auto; padding: 80px 48px; }
+        .content h2 { font-size: 28px; font-weight: 800; color: #fff; margin: 48px 0 16px; }
+        .content h2:first-child { margin-top: 0; }
+        .content p { font-size: 16px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.8; }
+
+        /* Company Details Grid */
+        .details-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 32px 0;
+        }
+        .detail-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 24px; transition: border-color 0.3s;
+        }
+        .detail-card:hover { border-color: rgba(59,130,246,0.3); }
+        .detail-label { font-size: 11px; color: var(--accent); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 6px; }
+        .detail-value { font-size: 16px; font-weight: 600; color: #fff; }
+
+        /* Regulatory Box */
+        .reg-box {
+            background: var(--accent-glow); border: 1px solid rgba(59,130,246,0.2);
+            border-radius: 16px; padding: 32px; margin: 40px 0;
+            position: relative; overflow: hidden;
+        }
+        .reg-box::before {
+            content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 4px;
+            background: var(--accent); border-radius: 4px 0 0 4px;
+        }
+        .reg-box h3 { color: #fff; font-size: 18px; margin-bottom: 12px; font-weight: 700; }
+        .reg-box p { font-size: 15px; color: var(--text-muted); line-height: 1.8; }
+
+        /* Values */
+        .values-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0;
+        }
+        .value-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 36px 24px; text-align: center; transition: all 0.4s;
+        }
+        .value-card:hover { border-color: rgba(59,130,246,0.3); transform: translateY(-4px); }
+        .value-icon {
+            width: 56px; height: 56px; background: var(--accent-glow); border-radius: 14px;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+        }
+        .value-icon svg { width: 28px; height: 28px; stroke: var(--accent); fill: none; stroke-width: 1.5; }
+        .value-card h3 { font-size: 18px; color: #fff; margin-bottom: 8px; font-weight: 700; }
+        .value-card p { font-size: 14px; color: var(--text-muted); line-height: 1.7; }
+
+        /* Team Image */
+        .image-banner {
+            position: relative; border-radius: 20px; overflow: hidden;
+            margin: 48px 0; box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
+        }
+        .image-banner img { width: 100%; height: 320px; object-fit: cover; display: block; }
+        .image-banner-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(10,22,40,0.8));
+            padding: 32px 24px 24px;
+        }
+        .image-banner-overlay p { color: rgba(255,255,255,0.7); font-size: 14px; margin: 0; }
+
+        /* Footer */
+        footer { background: var(--primary); border-top: 1px solid var(--border); padding: 48px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left .footer-logo { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: 2px; margin-bottom: 8px; }
+        .footer-left .footer-logo span { color: var(--accent); }
+        .footer-left p { font-size: 13px; color: var(--text-muted); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom { max-width: 1200px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,22,40,0.98); padding: 16px; border-bottom: 1px solid var(--border); }
+            nav ul.open { display: flex; }
+            .hamburger { display: block; }
+            .page-hero { padding: 120px 20px 60px; }
+            .page-hero-content h1 { font-size: 32px; }
+            .content { padding: 48px 20px; }
+            .details-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">GOSTRATA<span>.</span></div>
+    <button class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+</nav>
+
+<section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+        <div class="section-tag">About Us</div>
+        <h1>About Gostrata Ltd</h1>
+        <p>A licensed and regulated international brokerage company committed to delivering professional financial services.</p>
+    </div>
+</section>
+
+<section class="content">
+    <h2>Company Overview</h2>
+    <p>Gostrata Ltd is a licensed international brokerage and financial services company incorporated under the International Business Companies Act 2014. We operate under the regulatory oversight of the Mwali International Services Authority (MISA), providing professional financial services to clients worldwide.</p>
+    <p>Our company holds an International Brokerage and Clearing House License, authorizing us to offer a comprehensive range of brokerage, asset management, and clearing services in global financial markets.</p>
+
+    <div class="image-banner">
+        <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&q=80" alt="Modern financial district">
+        <div class="image-banner-overlay">
+            <p>Operating across global financial markets</p>
+        </div>
+    </div>
+
+    <h2>Company Details</h2>
+    <div class="details-grid">
+        <div class="detail-card">
+            <div class="detail-label">Company Name</div>
+            <div class="detail-value">Gostrata Ltd</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">Registration Number</div>
+            <div class="detail-value">HT00226012</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">License Number</div>
+            <div class="detail-value">BFX2026018</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">License Type</div>
+            <div class="detail-value">International Brokerage &amp; Clearing House</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">Regulatory Authority</div>
+            <div class="detail-value">Mwali International Services Authority (MISA)</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">Date of Incorporation</div>
+            <div class="detail-value">12 February 2026</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">Registered Office</div>
+            <div class="detail-value">Bonovo Road, Fomboni, Island of Moheli, Comoros Union</div>
+        </div>
+        <div class="detail-card">
+            <div class="detail-label">Governing Law</div>
+            <div class="detail-value">International Business Companies Act 2014</div>
+        </div>
+    </div>
+
+    <div class="reg-box">
+        <h3>Regulatory Framework</h3>
+        <p>Gostrata Ltd is incorporated under the International Business Companies Act 2014 and holds an International Brokerage and Clearing House License (No. BFX2026018) issued under the Brokerage Act 2013 by the Mwali International Services Authority (MISA) of the Autonomous Island of Mwali (Moheli), Comoros Union. The company is subject to the regulatory requirements and ongoing compliance obligations set forth by MISA.</p>
+    </div>
+
+    <h2>Our Values</h2>
+    <div class="values-grid">
+        <div class="value-card">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Integrity</h3>
+            <p>We uphold the highest standards of ethical conduct and transparency in all our business operations.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Compliance</h3>
+            <p>We maintain strict adherence to regulatory requirements and anti-money laundering obligations.</p>
+        </div>
+        <div class="value-card">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Client Focus</h3>
+            <p>We are committed to delivering professional services that meet our clients' financial objectives.</p>
+        </div>
+    </div>
+
+    <h2>Anti-Money Laundering</h2>
+    <p>Gostrata Ltd is committed to maintaining robust Anti-Money Laundering (AML) and Counter-Terrorism Financing (CTF) policies and procedures. We conduct thorough due diligence on all clients and transactions in compliance with applicable laws and regulations. Our compliance program is designed to detect, prevent, and report suspicious activities in accordance with the regulatory framework established by MISA.</p>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <div class="footer-logo">GOSTRATA<span>.</span></div>
+            <p>Bonovo Road, Fomboni, Island of Moheli, Comoros Union</p>
+        </div>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Gostrata Ltd. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

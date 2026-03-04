@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms &amp; Conditions | Gostrata Ltd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0a1628; --primary-mid: #152040; --accent: #3b82f6;
+            --text: #e2e8f0; --text-muted: #94a3b8;
+            --bg-dark: #0b1120; --bg-card: rgba(15,23,42,0.6); --border: rgba(255,255,255,0.08);
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); line-height: 1.6; background: var(--bg-dark); }
+
+        nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 48px; display: flex; align-items: center; justify-content: space-between; background: rgba(10,22,40,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+        .logo { color: #fff; font-size: 24px; font-weight: 800; padding: 20px 0; letter-spacing: 2px; }
+        .logo span { color: var(--accent); }
+        nav ul { list-style: none; display: flex; gap: 4px; }
+        nav ul li a { color: var(--text-muted); text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: all 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: #fff; background: rgba(255,255,255,0.08); }
+        .hamburger { display: none; background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+
+        .page-hero { position: relative; padding: 160px 48px 80px; overflow: hidden; background: linear-gradient(180deg, var(--primary-mid) 0%, var(--bg-dark) 100%); }
+        .page-hero-content { position: relative; z-index: 2; max-width: 700px; }
+        .page-hero-content .section-tag { display: inline-block; font-size: 12px; font-weight: 700; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
+        .page-hero-content h1 { font-size: 48px; font-weight: 800; color: #fff; margin-bottom: 16px; }
+        .page-hero-content p { font-size: 18px; color: var(--text-muted); }
+
+        .content { max-width: 800px; margin: 0 auto; padding: 60px 48px 80px; }
+        .last-updated {
+            display: inline-block; background: var(--bg-card); border: 1px solid var(--border);
+            padding: 8px 16px; border-radius: 8px; font-size: 13px; color: var(--text-muted); margin-bottom: 40px;
+        }
+        .content h2 { font-size: 20px; font-weight: 700; color: #fff; margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        .content h2:first-of-type { margin-top: 0; }
+        .content p { font-size: 15px; color: var(--text-muted); margin-bottom: 12px; line-height: 1.8; }
+        .content a { color: var(--accent); text-decoration: none; }
+
+        footer { background: var(--primary); border-top: 1px solid var(--border); padding: 48px; }
+        .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-left .footer-logo { font-size: 20px; font-weight: 800; color: #fff; letter-spacing: 2px; margin-bottom: 8px; }
+        .footer-left .footer-logo span { color: var(--accent); }
+        .footer-left p { font-size: 13px; color: var(--text-muted); }
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.3s; }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom { max-width: 1200px; margin: 24px auto 0; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: rgba(255,255,255,0.3); }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,22,40,0.98); padding: 16px; border-bottom: 1px solid var(--border); }
+            nav ul.open { display: flex; }
+            .hamburger { display: block; }
+            .page-hero { padding: 120px 20px 60px; }
+            .page-hero-content h1 { font-size: 32px; }
+            .content { padding: 40px 20px 60px; }
+            .footer-inner { flex-direction: column; gap: 24px; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">GOSTRATA<span>.</span></div>
+    <button class="hamburger" onclick="document.querySelector('nav ul').classList.toggle('open')">&#9776;</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="terms.html" class="active">Terms</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+</nav>
+
+<section class="page-hero">
+    <div class="page-hero-content">
+        <div class="section-tag">Legal</div>
+        <h1>Terms &amp; Conditions</h1>
+        <p>Please read these terms carefully before using our services.</p>
+    </div>
+</section>
+
+<section class="content">
+    <div class="last-updated">Last Updated: February 2026</div>
+
+    <h2>1. Introduction</h2>
+    <p>These Terms and Conditions govern your use of the services provided by Gostrata Ltd ("the Company", "we", "us", or "our"), a company incorporated under the International Business Companies Act 2014. By accessing our services, you agree to be bound by these terms.</p>
+
+    <h2>2. Services</h2>
+    <p>Gostrata Ltd provides international brokerage, asset management, and clearing services. Our services include, but are not limited to, access to global financial markets including forex, commodities, and securities trading; portfolio management and investment advisory services; and international clearing and settlement services.</p>
+
+    <h2>3. Eligibility</h2>
+    <p>To use our services, you must be at least 18 years of age, have the legal capacity to enter into binding agreements, and not be a resident of any jurisdiction where the use of our services would be prohibited by law. We reserve the right to verify your identity and eligibility at any time.</p>
+
+    <h2>4. Account Registration</h2>
+    <p>When opening an account with Gostrata Ltd, you are required to provide accurate, current, and complete information as part of our registration and Know Your Customer (KYC) procedures. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+
+    <h2>5. Risk Disclosure</h2>
+    <p>Trading in financial instruments carries a high level of risk and may not be suitable for all investors. You should carefully consider your investment objectives, level of experience, and risk appetite before engaging in trading activities. Past performance is not indicative of future results. You should not invest money that you cannot afford to lose.</p>
+
+    <h2>6. Anti-Money Laundering</h2>
+    <p>Gostrata Ltd is committed to compliance with all applicable anti-money laundering (AML) and counter-terrorism financing (CTF) laws and regulations. We are required to verify the identity of our clients and may request additional documentation at any time. We reserve the right to refuse or terminate services if we are unable to satisfactorily verify your identity or the source of funds.</p>
+
+    <h2>7. Intellectual Property</h2>
+    <p>All content, trademarks, logos, and other intellectual property displayed on our website and platforms are the property of Gostrata Ltd or their respective owners. You may not reproduce, distribute, or use any such content without our prior written consent.</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Gostrata Ltd shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from or related to your use of our services. Our total liability shall not exceed the fees paid by you to the Company in the twelve months preceding the claim.</p>
+
+    <h2>9. Indemnification</h2>
+    <p>You agree to indemnify and hold harmless Gostrata Ltd, its directors, officers, employees, and agents from any claims, damages, losses, or expenses arising from your use of our services, your breach of these terms, or your violation of any applicable law or regulation.</p>
+
+    <h2>10. Amendments</h2>
+    <p>Gostrata Ltd reserves the right to amend these Terms and Conditions at any time. Changes will be effective upon posting on our website. Your continued use of our services after any modifications constitutes your acceptance of the revised terms.</p>
+
+    <h2>11. Governing Law</h2>
+    <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the Autonomous Island of Mwali (Moheli), Comoros Union. Any disputes arising out of or in connection with these terms shall be subject to the exclusive jurisdiction of the competent courts of the Comoros Union.</p>
+
+    <h2>12. Contact</h2>
+    <p>If you have any questions about these Terms and Conditions, please contact us at <a href="mailto:info@gostrata.com">info@gostrata.com</a>.</p>
+</section>
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <div class="footer-logo">GOSTRATA<span>.</span></div>
+            <p>Bonovo Road, Fomboni, Island of Moheli, Comoros Union</p>
+        </div>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="terms.html">Terms</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Gostrata Ltd. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
